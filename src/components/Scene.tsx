@@ -9,13 +9,13 @@ type Props = {}
 const Scene = (props: Props) => {
   return (
     <>
-    <ambientLight intensity={0.5}/>
-    <spotLight position={[2,2,2]}/>
+    <ambientLight intensity={10}/>
+    {/* <spotLight position={[2,2,2]}/> */}
     <OrbitControls />
-      <mesh>
+      {/* <mesh>
         <boxGeometry args={[1,1,1]}/>
         <meshStandardMaterial color={'#b8d292'}/>
-      </mesh>
+      </mesh> */}
     </>
   )
 }
