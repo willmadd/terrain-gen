@@ -11,7 +11,7 @@ import * as THREE from "three";
 // import waterNormalsSrc from "/public/images/waternormal3.jpeg";
 import { Water } from "three-stdlib";
 import { useTerrainConfigStore } from "@/store";
-
+import waterNorms from '../assets/waterNormal3.jpeg'
 extend({ Water });
 
 declare global {
@@ -32,7 +32,7 @@ const Ocean = () => {
   const { waterLevel, waterTemplate, waterColor, waterOpacity, height, width } =
     useTerrainConfigStore();
 
-  const waterNormals = useLoader(THREE.TextureLoader, '/images/waternormal3.jpeg');
+  const waterNormals = useLoader(THREE.TextureLoader, waterNorms.src);
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
   const geom = useMemo(() => new THREE.PlaneGeometry(width, height), [width, height]);
   const config = useMemo(
