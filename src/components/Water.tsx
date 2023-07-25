@@ -59,6 +59,7 @@ const Ocean = () => {
   return (
     <>
       {waterTemplate ? (
+        //@ts-ignore
         <water
           position={[0, waterLevel - 10, 0]}
           ref={ref}
