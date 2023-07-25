@@ -2,7 +2,7 @@ import { useTerrainConfigStore } from "@/store";
 import { FaChevronDown } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 
-import {WaterControlsProps} from '../src/types';
+import {WaterControlsProps} from '../types';
 
   const WaterControls: React.FC<WaterControlsProps> = ({
     setMenuOpen,
