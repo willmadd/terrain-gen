@@ -88,7 +88,7 @@ const Terrain = ({ id }: { id: string }) => {
   };
   const [positions, setPositions] = useState([new THREE.Vector3()]);
 
-  console.log("xxyyzz", positions);
+  // console.log("xxyyzz", positions);
 
   const colourVertices = (vertices: any) => {
     if (ref.current) {
