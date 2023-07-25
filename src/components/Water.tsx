@@ -8,7 +8,7 @@ import {
   ReactThreeFiber
 } from "@react-three/fiber";
 import * as THREE from "three";
-import waterNormalsSrc from "/public/images/waternormal3.jpeg";
+// import waterNormalsSrc from "/public/images/waternormal3.jpeg";
 import { Water } from "three-stdlib";
 import { useTerrainConfigStore } from "@/store";
 
@@ -32,9 +32,9 @@ const Ocean = () => {
   const { waterLevel, waterTemplate, waterColor, waterOpacity, height, width } =
     useTerrainConfigStore();
 
-  const waterNormals = useLoader(THREE.TextureLoader, waterNormalsSrc.src);
+  const waterNormals = useLoader(THREE.TextureLoader, '/images/waternormal3.jpeg');
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-  const geom = useMemo(() => new THREE.PlaneGeometry(width, height), []);
+  const geom = useMemo(() => new THREE.PlaneGeometry(width, height), [width, height]);
   const config = useMemo(
     () => ({
       textureWidth: 512,
@@ -59,6 +59,7 @@ const Ocean = () => {
   return (
     <>
       {waterTemplate ? (
+        //@ts-ignore
         <water
           position={[0, waterLevel - 10, 0]}
           ref={ref}

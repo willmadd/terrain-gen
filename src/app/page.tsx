@@ -1,4 +1,4 @@
-import Scene from "@/components/Scene";
+import Scene from "../components/Scene";
 import { generateId } from "@/helpers";
 import { Canvas } from "@react-three/fiber";
 import Image from "next/image";

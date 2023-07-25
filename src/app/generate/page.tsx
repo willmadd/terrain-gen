@@ -1,5 +1,5 @@
 "use client";
-import Scene from "@/components/Scene";
+import Scene from "../../components/Scene";
 import { Canvas } from "@react-three/fiber";
 import Image from "next/image";
 import { Suspense } from "react";

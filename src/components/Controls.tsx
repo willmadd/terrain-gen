@@ -2,7 +2,7 @@ import { generateId } from "@/helpers";
 import React, { useState } from "react";
 import { useTerrainConfigStore } from "@/store";
 import WaterControls from "./WaterControls";
-import {  MenuOpenProps } from '../types/';
+import {  MenuOpenProps } from '../types';
 import EnvironmentControls from "./EnvironmentControls";
 import SandControls from "./SandControls";
 import GrassControls from "./GrassControls";
