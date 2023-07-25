@@ -1,5 +1,5 @@
 "use client";
-import Scene from "@/components/Scene";
+import Scene from "../../../components/Scene";
 import { Canvas } from "@react-three/fiber";
 import Image from "next/image";
 import { Suspense, useEffect, useRef } from "react";
@@ -7,9 +7,9 @@ import { Group, Mesh } from "three";
 import { createNoise2D } from "simplex-noise";
 import alea from "alea";
 import * as THREE from "three";
-import WorldMaker from "@/components/WorldMaker";
+import WorldMaker from "../../../components/WorldMaker";
 import { OrbitControls, PerspectiveCamera, Sky, Stars } from "@react-three/drei";
-import Controls from "@/components/Controls";
+import Controls from "../../../components/Controls";
 
 type WorldGenerationProps = {
   params: {
