@@ -1,6 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import ReactGA from "react-ga4";
 
+ReactGA.initialize("G-E95X19XD5G");
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
