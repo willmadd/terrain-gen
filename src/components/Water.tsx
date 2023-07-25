@@ -34,7 +34,7 @@ const Ocean = () => {
 
   const waterNormals = useLoader(THREE.TextureLoader, '/images/waternormal3.jpeg');
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-  const geom = useMemo(() => new THREE.PlaneGeometry(width, height), []);
+  const geom = useMemo(() => new THREE.PlaneGeometry(width, height), [width, height]);
   const config = useMemo(
     () => ({
       textureWidth: 512,

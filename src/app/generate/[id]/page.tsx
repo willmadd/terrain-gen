@@ -17,7 +17,7 @@ type WorldGenerationProps = {
   };
 };
 
-export const MapPage = ({ params }: WorldGenerationProps) => {
+const MapPage = ({ params }: WorldGenerationProps) => {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center h-screen bg-black">
