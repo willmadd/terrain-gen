@@ -64,7 +64,7 @@ export default function Home() {
         className={"bg-white mt-4 rounded-md shadow-md p-2 h-12"}
         > */}
       <a
-        href={`/generate/${rndId}`}
+        href={`/generate/`}
         className={
           "bg-white mt-8 rounded-md shadow-md p-2 h-12 block flex items-center justify-center"
         }

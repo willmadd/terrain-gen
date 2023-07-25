@@ -1,3 +1,5 @@
+'use client'
+
 import { useMemo, useRef, useLayoutEffect, useEffect, useState } from "react";
 import * as THREE from "three";
 import { createNoise2D } from "simplex-noise";

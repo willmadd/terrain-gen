@@ -1,3 +1,5 @@
+'use client'
+
 import { generateId } from "@/helpers";
 import React, { useState } from "react";
 import { useTerrainConfigStore } from "@/store";
