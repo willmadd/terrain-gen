@@ -21,6 +21,7 @@ interface TerrainState {
   rockSolidColor: boolean;
   rockColor: string;
   resetTerrain: ()=>void;
+  sky:string;
 // waterColor: string
 }
 
@@ -41,6 +42,7 @@ const initialState = {
     grassColor: '#567d46',
     rockSolidColor:true,
     rockColor: '#e8dd8e',
+    sky:'sky'
 
 }
 

@@ -9,6 +9,7 @@ import EnvironmentControls from "./EnvironmentControls";
 import SandControls from "./SandControls";
 import GrassControls from "./GrassControls";
 import RockControls from "./RockControls";
+import SkyControls from "./SkyControls";
 type Props = {};
 
 const Controls: React.FC = (props: Props) => {
@@ -38,6 +39,7 @@ const Controls: React.FC = (props: Props) => {
 
       <hr />
       <div className="grid grid-cols-2 gap-3 my-4">
+        <SkyControls menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <WaterControls  menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <SandControls menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <GrassControls menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
