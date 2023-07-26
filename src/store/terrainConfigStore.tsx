@@ -18,6 +18,8 @@ interface TerrainState {
   sandColor: string;
   grassSolidColor: boolean;
   grassColor: string;
+  rockSolidColor: boolean;
+  rockColor: string;
   resetTerrain: ()=>void;
 // waterColor: string
 }
@@ -37,6 +39,8 @@ const initialState = {
     sandColor: '#C2B280',
     grassSolidColor:true,
     grassColor: '#567d46',
+    rockSolidColor:true,
+    rockColor: '#e8dd8e',
 
 }
 

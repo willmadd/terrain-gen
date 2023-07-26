@@ -6,11 +6,11 @@ import { WaterControlsProps } from "../types";
 
 type Props = {};
 
-const GrassControls: React.FC<WaterControlsProps> = ({
+const RockControls: React.FC<WaterControlsProps> = ({
   menuOpen,
   setMenuOpen,
 }) => {
-  const { grassColor, grassSolidColor, updateValue } = useTerrainConfigStore();
+  const { rockColor, rockSolidColor, updateValue } = useTerrainConfigStore();
 
   return (
     <div className="bg-[#AFCBFF] rounded-md p-2">
@@ -21,7 +21,7 @@ const GrassControls: React.FC<WaterControlsProps> = ({
         aria-label={"open environment options"}
         className="flex justify-between w-full"
       >
-        <h2 className="text-lg text-[#171219]">Grass</h2>
+        <h2 className="text-lg text-[#171219]">Rock</h2>
         {/* <FaChevronDown /> */}
       </button>
       <AnimatePresence>
@@ -48,9 +48,9 @@ const GrassControls: React.FC<WaterControlsProps> = ({
              <label className="relative inline-flex items-center mb-5 mt-2 cursor-pointer">
                <input
                  type="checkbox"
-                 checked={!grassSolidColor}
+                 checked={!rockSolidColor}
                  onChange={(e) =>
-                   updateValue("grassSolidColor", !grassSolidColor)
+                   updateValue("rockSolidColor", !rockSolidColor)
                  }
                  className="sr-only peer"
                />
@@ -61,7 +61,7 @@ const GrassControls: React.FC<WaterControlsProps> = ({
              </label>
            </div>
            <AnimatePresence>
-             {!grassSolidColor && (
+             {!rockSolidColor && (
                <motion.div
                  animate={{
                    opacity: 1,
@@ -81,9 +81,9 @@ const GrassControls: React.FC<WaterControlsProps> = ({
                    <input
                    className="mr-4"
                      type={"color"}
-                     value={grassColor}
+                     value={rockColor}
                      onChange={(e) =>
-                       updateValue("grassColor", e.target.value)
+                       updateValue("rockColor", e.target.value)
                      }
                      />
                      Colour
@@ -147,4 +147,4 @@ const GrassControls: React.FC<WaterControlsProps> = ({
       </div>);
 };
 
-export default GrassControls;
+export default RockControls;

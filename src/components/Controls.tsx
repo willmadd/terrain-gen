@@ -8,6 +8,7 @@ import {  MenuOpenProps } from '../types';
 import EnvironmentControls from "./EnvironmentControls";
 import SandControls from "./SandControls";
 import GrassControls from "./GrassControls";
+import RockControls from "./RockControls";
 type Props = {};
 
 const Controls: React.FC = (props: Props) => {
@@ -30,19 +31,23 @@ const Controls: React.FC = (props: Props) => {
   return (
     <div
       className={
-        "z-10 absolute top-5 right-5 bg-slate-800 text-white p-3 rounded-md shadow-lg w-60"
+        "z-10 absolute top-5 right-5 bg-[#225560] text-white p-3 rounded-md shadow-lg w-96"
       }
     >
       <h1 className={"text-white text-xl"}>Terrain Customisations</h1>
 
       <hr />
+      <div className="grid grid-cols-2 gap-3 my-4">
       <WaterControls  menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+      <SandControls menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+      <GrassControls menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+      <RockControls menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+
+      </div>
       <hr />
       <EnvironmentControls  menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <hr className="mt-4" />
-      <SandControls menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <hr className="mt-4" />
-      <GrassControls menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       <div className="mt-2">
         <div className="grid grid-cols-2 gap-4">
           <label>
@@ -66,7 +71,7 @@ const Controls: React.FC = (props: Props) => {
         </div>
         <a
           className="flex justify-center p-2 items-center mt-4 bg-white rounded-md"
-          href={`/generate/${random}`}
+          href={`/generate`}
         >
           <span className="text-slate-800">Generate New</span>
         </a>

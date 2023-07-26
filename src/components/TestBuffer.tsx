@@ -30,7 +30,7 @@ export const TestBuffer = () => {
   ]);
 
   useEffect(() => {
-    console.log(ref.current);
+    // console.log(ref.current);
     const count = 3;
     ref.current.geometry.setAttribute(
       "color",

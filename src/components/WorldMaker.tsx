@@ -7,15 +7,10 @@ import { terrainDimensions } from "@/store/controlsStore";
 import Ocean from "./Water";
 import { useProgress } from "@react-three/drei";
 import { useTerrainConfigStore } from "@/store";
+import { grassColors, rockColors, sandColors } from "@/helpers/constants";
 // import * as THREE from 'three';
 const Terrain = ({ id }: { id: string }) => {
   const ref = useRef<THREE.Mesh>(null);
-  // let height = 1000;
-  // let width = 1000;
-  // const {fog, updateFog} = useTerrainConfigStore()
-
-  const { progress } = useProgress();
-  // useProgress
 
   const {
     fog,
@@ -28,6 +23,8 @@ const Terrain = ({ id }: { id: string }) => {
     sandColor,
     grassSolidColor,
     grassColor,
+    rockSolidColor,
+    rockColor,
   } = useTerrainConfigStore();
   const height = +h;
   const width = +w;
@@ -94,29 +91,9 @@ const Terrain = ({ id }: { id: string }) => {
     if (ref.current) {
       const count = height * width * 6;
 
-      const getRandomGrassColor = () => {
-        var colors = [
-          [0.475, 0.731, 0.373], // Light Green
-          [0.365, 0.645, 0.278], // Medium Green
-          [0.298, 0.543, 0.224], // Dark Green
-          [0.553, 0.853, 0.463], // Pale Green
-          [0.42, 0.735, 0.349], // Fresh Green
-        ];
+      const getRandomColor = (colors:number[][]) => {
 
         const randomIndex = Math.floor(Math.random() * colors.length);
-        return colors[randomIndex];
-      };
-
-      const getRandomSandColor = () => {
-        var colors = [
-          [1.0, 0.933, 0.745], //- Light Sand (Yellowish)
-          [0.918, 0.847, 0.62], //- Beige Sand (Yellowish)
-          [0.867, 0.769, 0.518], //- Medium Sand (Yellowish)
-          [0.737, 0.659, 0.408], //- Tan Sand (Yellowish)
-          [0.627, 0.553, 0.333], //- Dark Sand (Yellowish)
-        ];
-
-        let randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
       };
 
@@ -129,7 +106,29 @@ const Terrain = ({ id }: { id: string }) => {
         if (v.y > amplitude ** 3) {
           ref.current?.geometry.attributes.color.setXYZ(i, 1.0, 1.0, 1.0);
         } else if (v.y > 2.5) {
-          ref.current?.geometry.attributes.color.setXYZ(i, 0.2, 0.2, 0.2);
+          //
+          // console.log('1234',rockSolidColor)
+          if(!rockSolidColor){
+            const thing = rockColor.replace("#", "");
+            const colorValue = parseInt(thing, 16);
+            const fixedRockColour = new THREE.Color(colorValue);
+            ref.current?.geometry.attributes.color.setXYZ(
+              i,
+              fixedRockColour.r,
+              fixedRockColour.g,
+              fixedRockColour.b
+            );
+          }else{
+            const randomRockColor = getRandomColor(rockColors);
+            ref.current?.geometry.attributes.color.setXYZ(
+              i,
+              randomRockColor[0],
+              randomRockColor[1],
+              randomRockColor[2]
+            );
+          }
+          //
+          // ref.current?.geometry.attributes.color.setXYZ(i, 0.2, 0.2, 0.2);
         } else if (v.y > -2) {
           if(!grassSolidColor){
             const thing = grassColor.replace("#", "");
@@ -142,8 +141,7 @@ const Terrain = ({ id }: { id: string }) => {
               fixedGrassColour.b
             );
           }else{
-
-            const randomGrassColor = getRandomGrassColor();
+            const randomGrassColor = getRandomColor(grassColors);
             ref.current?.geometry.attributes.color.setXYZ(
               i,
               randomGrassColor[0],
@@ -163,7 +161,7 @@ const Terrain = ({ id }: { id: string }) => {
               fixedSandColour.b
             );
           } else {
-            let randomSandColor = getRandomSandColor();
+            let randomSandColor = getRandomColor(sandColors);
             ref.current?.geometry.attributes.color.setXYZ(
               i,
               randomSandColor[0],
@@ -191,7 +189,7 @@ const Terrain = ({ id }: { id: string }) => {
     if (positions.length > 10) {
       colourVertices(positions);
     }
-  }, [positions.length, sandSolidColor, sandColor, grassColor, grassSolidColor]);
+  }, [positions.length, sandSolidColor, sandColor, grassColor, grassSolidColor, rockColor, rockSolidColor]);
 
   return (
     <>
